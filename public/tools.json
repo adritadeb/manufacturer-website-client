@@ -1,0 +1,29 @@
+[
+    {
+        "_id": 1,
+        "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Flive.staticflickr.com%2F65535%2F48312881021_581b474fd9_b.jpg&imgrefurl=https%3A%2F%2Fwww.flickr.com%2Fphotos%2F30478819%40N08%2F48312881021&tbnid=jhTRiMSU4ph4kM&vet=12ahUKEwjQybDm6vz3AhX_i9gFHT8RDgQQMygFegUIARCVAQ..i&docid=-J6toWg8wL38vM&w=1024&h=683&q=roller%20painter%20image&hl=en&client=firefox-b-d&ved=2ahUKEwjQybDm6vz3AhX_i9gFHT8RDgQQMygFegUIARCVAQ",
+        "name": "White roller",
+        "description": "Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi.",
+        "minQuantity": 150,
+        "available": 500,
+        "price": 299
+    },
+    {
+        "_id": 2,
+        "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Flive.staticflickr.com%2F65535%2F48312881021_581b474fd9_b.jpg&imgrefurl=https%3A%2F%2Fwww.flickr.com%2Fphotos%2F30478819%40N08%2F48312881021&tbnid=jhTRiMSU4ph4kM&vet=12ahUKEwjQybDm6vz3AhX_i9gFHT8RDgQQMygFegUIARCVAQ..i&docid=-J6toWg8wL38vM&w=1024&h=683&q=roller%20painter%20image&hl=en&client=firefox-b-d&ved=2ahUKEwjQybDm6vz3AhX_i9gFHT8RDgQQMygFegUIARCVAQ",
+        "name": "White roller",
+        "description": "Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi.",
+        "minQuantity": 150,
+        "available": 500,
+        "price": 299
+    },
+    {
+        "_id": 3,
+        "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Flive.staticflickr.com%2F65535%2F48312881021_581b474fd9_b.jpg&imgrefurl=https%3A%2F%2Fwww.flickr.com%2Fphotos%2F30478819%40N08%2F48312881021&tbnid=jhTRiMSU4ph4kM&vet=12ahUKEwjQybDm6vz3AhX_i9gFHT8RDgQQMygFegUIARCVAQ..i&docid=-J6toWg8wL38vM&w=1024&h=683&q=roller%20painter%20image&hl=en&client=firefox-b-d&ved=2ahUKEwjQybDm6vz3AhX_i9gFHT8RDgQQMygFegUIARCVAQ",
+        "name": "White roller",
+        "description": "Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi.",
+        "minQuantity": 150,
+        "available": 500,
+        "price": 299
+    }
+]

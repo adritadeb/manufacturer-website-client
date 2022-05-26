@@ -5,6 +5,7 @@ const Navbar = () => {
     const navbarMenu = <>
         <li><Link to='/blogs'>Blogs</Link></li>
         <li><Link to='/portfolio'>My Portfolio</Link></li>
+        <li><Link to='/login'>Login</Link></li>
     </>
 
     return (
@@ -19,7 +20,7 @@ const Navbar = () => {
                             {navbarMenu}
                         </ul>
                     </div>
-                    <Link to='/' class="btn btn-secondary btn-outline normal-case text-2xl">Roll Walls</Link>
+                    <Link to='/' class="btn btn-secondary btn-outline normal-case text-2xl">Roll Wall</Link>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
