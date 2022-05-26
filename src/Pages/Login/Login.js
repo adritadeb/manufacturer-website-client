@@ -1,30 +1,37 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
     const navigate = useNavigate();
     let errorElement;
 
-    if (error) {
-        errorElement = <p className='text-red-500'>Error: {error.message}</p>
+    if (error || gError) {
+        errorElement = <p className='text-red-500'>Error: {error?.message || gError?.message}</p>
     }
 
-    if (loading) {
+    if (loading || gLoading) {
         return <Loading></Loading>
     }
 
-    if (user) {
+    if (user || gUser) {
         navigate('/');
     }
 
     const onSubmit = data => {
-
+        signInWithEmailAndPassword(data.email, data.password);
     };
     return (
         <div className='flex justify-center items-center'>
