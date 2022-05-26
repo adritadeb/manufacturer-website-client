@@ -1,9 +1,27 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const navigate = useNavigate();
+    let errorElement;
+
+    if (error) {
+        errorElement = <p className='text-red-500'>Error: {error.message}</p>
+    }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        navigate('/');
+    }
 
     const onSubmit = data => {
 
@@ -59,11 +77,12 @@ const Login = () => {
                                 {errors.password?.type === 'pattern' && <span className='label-text-alt text-red-500'>{errors.password.message}</span>}
                             </label>
                         </div>
+                        {errorElement}
                         <input className='btn btn-outline mt-4 w-full' type='submit' value='Login' />
                     </form>
                     <p className='mt-3'>New to Roll Wall? <Link className='text-secondary' to='/signup'>Create an Account</Link></p>
                     <div class="divider">OR</div>
-                    <button class="btn btn-outline">Sign in with Google</button>
+                    <button onClick={() => signInWithGoogle()} class="btn btn-outline">Sign in with Google</button>
                 </div>
             </div>
         </div>
