@@ -14,10 +14,9 @@ const Navbar = () => {
     const navbarMenu = <>
         <li><Link to='/blogs'>Blogs</Link></li>
         <li><Link to='/portfolio'>My Portfolio</Link></li>
-        <li>{user ? <div>
-            <Link to='/dashboard'>Dashboard</Link>
-            <button onClick={logout} className='btn btn-ghost'>Sign Out</button>
-        </div> : <Link to='/login'>Login</Link>}</li>
+        <li>{user && <Link to='/dashboard'>Dashboard</Link>}</li>
+        <li>{user ? <button onClick={logout} className='btn btn-ghost'>Sign Out</button>
+            : <Link to='/login'>Login</Link>}</li>
     </>
 
     return (

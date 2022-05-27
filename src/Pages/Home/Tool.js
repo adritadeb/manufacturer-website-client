@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Tool = ({ tool }) => {
-    const { img, name, description, minQuantity, available, price } = tool;
+    const { _id, img, name, description, minQuantity, available, price } = tool;
 
     return (
         <div class="card bg-base-100 shadow-xl">
@@ -14,7 +14,7 @@ const Tool = ({ tool }) => {
                 <h3 className='text-xl'>Available product: <span className='font-semibold'>{available}</span> piece</h3>
                 <h3 className='text-xl'>Price: <span className='font-semibold'>${price}</span> (per unit)</h3>
                 <div class="card-actions">
-                    <Link to='/purchase' class="btn btn-secondary btn-outline mt-2">Purchase</Link>
+                    <Link to={`/purchase/${_id}`} class="btn btn-secondary btn-outline mt-2">Purchase</Link>
                 </div>
             </div>
         </div>
