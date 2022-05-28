@@ -8,12 +8,18 @@ const Orders = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`http://localhost:5000/orders?email=${user.email}`, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
+                console.log(data)
             })
-    }, []);
+    }, [user]);
     return (
         <div>
             <h1 className='text-2xl ml-5 my-8'>My Orders</h1>
