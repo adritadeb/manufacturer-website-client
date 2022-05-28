@@ -7,6 +7,11 @@ const addReview = event => {
     const ratingsValue = event.target.ratings.value;
     const reviewValue = event.target.review.value;
 
+    if (1 > ratingsValue || ratingsValue > 5) {
+        toast.error('Please, give valid ratings');
+        return;
+    }
+
     const newReview = { reviewValue, ratingsValue };
     fetch('http://localhost:5000/reviews', {
         method: 'POST',
@@ -30,11 +35,11 @@ const AddReview = () => {
                 <label class="label">
                     <span class="label-text text-xl">Description</span>
                 </label>
-                <textarea name='review' class="textarea textarea-secondary w-80 h-24" placeholder="Review"></textarea>
+                <textarea name='review' class="textarea textarea-secondary w-80 h-24" placeholder="Review" required></textarea>
                 <label class="label">
                     <span class="label-text text-xl">Ratings</span>
                 </label>
-                <input type="number" name='ratings' placeholder="Ratings" class="input input-bordered input-secondary w-full max-w-xs mb-5" />
+                <input type="number" name='ratings' placeholder="Ratings" class="input input-bordered input-secondary w-full max-w-xs mb-5" required />
                 <input type="submit" className='btn btn-secondary w-80' value="Add" />
             </form>
         </div>
