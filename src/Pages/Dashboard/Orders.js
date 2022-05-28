@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -26,6 +27,7 @@ const Orders = () => {
                             <th>Available</th>
                             <th>Ordered</th>
                             <th>Price</th>
+                            <th>Pay</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -38,6 +40,9 @@ const Orders = () => {
                                 <td>{order.toolAvailable}</td>
                                 <td>{order.toolOrderedQuantity}</td>
                                 <td>{order.toolPrice}</td>
+                                <td>
+                                    <Link to='/payment' class="btn btn-secondary btn-outline">Payment</Link>
+                                </td>
                                 <td>
                                     <button class="btn btn-error">Delete</button>
                                 </td>
