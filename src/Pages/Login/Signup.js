@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useSignInWithGoogle, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -17,6 +17,11 @@ const Signup = () => {
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
+
     let errorElement;
 
     if (error || gError || updateError) {
@@ -28,7 +33,8 @@ const Signup = () => {
     }
 
     if (user || gUser) {
-        navigate('/');
+        navigate(from, { replace: true });
+
     }
 
     const onSubmit = async data => {

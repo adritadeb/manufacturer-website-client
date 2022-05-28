@@ -3,12 +3,10 @@ import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
-// import Loading from '../Shared/Loading';
 
 const Purchase = () => {
     const [user] = useAuthState(auth);
     const [tool, setTool] = useState({});
-    // const [loading, setLoading] = useState(true);
     const [orderedQuantity, setOrderedQuantity] = useState(0);
 
     const { id } = useParams();
@@ -25,7 +23,7 @@ const Purchase = () => {
     let { img, name, minQuantity, available, quantity, price, description } = tool;
 
     const decreaseQuantity = () => {
-        if (quantity === minQuantity) {
+        if (orderedQuantity === minQuantity) {
             toast.error("You can't decrease more");
             return;
         }
@@ -43,7 +41,6 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 setOrderedQuantity(updatedQuantity.quantity);
-                // setLoading(false);
                 toast.success('Order quantity decreased successfully');
             })
     }
@@ -85,8 +82,35 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 setOrderedQuantity(updatedQuantity.quantity);
-                // setLoading(false);
                 toast.success('Order quantity increased successfully')
+                event.target.reset();
+            })
+    }
+
+    const placeOrder = event => {
+        event.preventDefault();
+        const userName = event.target.name.value;
+        const email = event.target.email.value;
+        const toolName = name;
+        const toolImg = img;
+        const toolMinQuantity = minQuantity;
+        const toolAvailable = available;
+        const toolOrderedQuantity = quantity;
+        const toolPrice = price;
+        const toolBody = description;
+
+        const orderedTool = { userName, email, toolName, toolImg, toolMinQuantity, toolAvailable, toolOrderedQuantity, toolPrice, toolBody };
+
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderedTool)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success('Item ordered successfully');
                 event.target.reset();
             })
     }
@@ -106,9 +130,6 @@ const Purchase = () => {
                             <h3 className='text-xl'>Available product: <span className='font-semibold'>{available}</span> piece</h3>
                             <h3 className='text-xl'>Price: <span className='font-semibold'>${price}</span> (per unit)</h3>
                             <h3 className='text-xl'>Ordered Quantity: <span className='font-semibold text-pink-500'>{
-                                // orderedQuantity ? orderedQuantity
-                                //     : loading ? <Loading></Loading>
-                                //         : minQuantity
                                 orderedQuantity ? orderedQuantity : minQuantity
                             }</span> piece</h3>
                             <div className='flex justify-between items-center'>
@@ -123,18 +144,24 @@ const Purchase = () => {
                     <div class="card shadow-2xl bg-base-100">
                         <div class="card-body">
                             <h3 className='text-center text-xl mb-4'>User Information</h3>
-                            <div class="form-control">
-                                <input type="text" value={user.displayName} class="input input-bordered" />
-                            </div>
-                            <div class="form-control">
-                                <input type="email" value={user.email} class="input input-bordered" />
-                            </div>
-                            <div class="form-control">
-                                <input type="email" placeholder='Address' required class="input input-bordered" />
-                            </div>
-                            <div class="form-control">
-                                <input type="email" placeholder='phone' required class="input input-bordered mb-2" />
-                            </div>
+                            <form onSubmit={placeOrder}>
+                                <div class="form-control">
+                                    <input type="text" name='name' value={user.displayName} class="input input-bordered" />
+                                </div>
+                                <div class="form-control">
+                                    <input type="email" name='email' value={user.email} class="input input-bordered my-4" />
+                                </div>
+                                <div class="form-control">
+                                    <input type="text" placeholder='Address' required class="input input-bordered" />
+                                </div>
+                                <div class="form-control">
+                                    <input type="text" placeholder='phone' required class="input input-bordered my-4" />
+                                </div>
+                                <div class="form-control">
+                                    <input type="submit" value='Purchase'
+                                        className='btn btn-outline btn-secondary' />
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
