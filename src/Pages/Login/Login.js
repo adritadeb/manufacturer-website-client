@@ -43,8 +43,8 @@ const Login = () => {
     };
     return (
         <div className='flex justify-center items-center'>
-            <div class="card w-96 bg-base-100 shadow-xl mt-12">
-                <div class="card-body">
+            <div className="card w-96 bg-base-100 shadow-xl mt-12">
+                <div className="card-body">
                     <h2 className='text-center text-secondary text-3xl font-semibold'>Login</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control w-full max-w-xs">
@@ -96,8 +96,8 @@ const Login = () => {
                         <input className='btn btn-outline mt-4 w-full' type='submit' value='Login' />
                     </form>
                     <p className='mt-3'>New to Roll Wall? <Link className='text-secondary' to='/signup'>Create an Account</Link></p>
-                    <div class="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} class="btn btn-outline">Sign in with Google</button>
+                    <div className="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Sign in with Google</button>
                 </div>
             </div>
         </div>

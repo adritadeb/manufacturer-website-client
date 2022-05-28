@@ -23,8 +23,8 @@ const Orders = () => {
     return (
         <div>
             <h1 className='text-2xl ml-5 my-8'>My Orders</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -47,10 +47,10 @@ const Orders = () => {
                                 <td>{order.toolOrderedQuantity}</td>
                                 <td>{order.toolPrice}</td>
                                 <td>
-                                    <Link to='/payment' class="btn btn-secondary btn-outline">Payment</Link>
+                                    <Link to='/payment' className="btn btn-secondary btn-outline">Payment</Link>
                                 </td>
                                 <td>
-                                    <button class="btn btn-error">Delete</button>
+                                    <button className="btn btn-error">Delete</button>
                                 </td>
                             </tr>)
                         }

@@ -45,8 +45,8 @@ const Signup = () => {
     };
     return (
         <div className='flex justify-center items-center'>
-            <div class="card w-96 bg-base-100 shadow-xl mt-12">
-                <div class="card-body">
+            <div className="card w-96 bg-base-100 shadow-xl mt-12">
+                <div className="card-body">
                     <h2 className='text-center text-3xl font-semibold text-secondary'>Sign up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control w-full max-w-xs">
@@ -116,8 +116,8 @@ const Signup = () => {
                         <input className='btn btn-outline mt-4 w-full' type='submit' value='Sign Up' />
                     </form>
                     <p className='mt-3'>Already have an Accout? <Link to='/login' className='text-secondary'>Please Login</Link></p>
-                    <div class="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} class="btn btn-outline">Sign in with Google</button>
+                    <div className="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Sign in with Google</button>
                 </div>
             </div>
         </div>

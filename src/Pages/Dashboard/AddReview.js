@@ -32,14 +32,14 @@ const AddReview = () => {
         <div>
             <h2 className='text-2xl font-semibold ml-5 my-8 text-pink-400'>Give a Review</h2>
             <form onSubmit={addReview} className='border-2 border-black rounded-lg ml-5 p-5 w-96'>
-                <label class="label">
-                    <span class="label-text text-xl">Description</span>
+                <label className="label">
+                    <span className="label-text text-xl">Description</span>
                 </label>
-                <textarea name='review' class="textarea textarea-secondary w-80 h-24" placeholder="Review" required></textarea>
-                <label class="label">
-                    <span class="label-text text-xl">Ratings</span>
+                <textarea name='review' className="textarea textarea-secondary w-80 h-24" placeholder="Review" required></textarea>
+                <label className="label">
+                    <span className="label-text text-xl">Ratings</span>
                 </label>
-                <input type="number" name='ratings' placeholder="Ratings" class="input input-bordered input-secondary w-full max-w-xs mb-5" required />
+                <input type="number" name='ratings' placeholder="Ratings" className="input input-bordered input-secondary w-full max-w-xs mb-5" required />
                 <input type="submit" className='btn btn-secondary w-80' value="Add" />
             </form>
         </div>

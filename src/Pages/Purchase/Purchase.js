@@ -119,13 +119,13 @@ const Purchase = () => {
     return (
         <div>
             <h2 className='text-center font-semibold text-3xl mt-10 mb-20'>Purchase <span className='text-pink-400 '>{name}</span></h2>
-            <div class="mx-auto w-3/4">
-                <div class="grid md:grid-cols-2 grid-cols-1 gap-20 md:gap-28">
-                    <div class="card shadow-2xl bg-base-100">
-                        <div class="card-body">
+            <div className="mx-auto w-3/4">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-20 md:gap-28">
+                    <div className="card shadow-2xl bg-base-100">
+                        <div className="card-body">
                             <h3 className='text-center text-xl mb-4'>Product Information</h3>
                             <figure><img className='w-96 mb-0' style={{ height: '250px' }} src={img} alt="tool" /></figure>
-                            <h2 class="text-2xl font-bold">{name}</h2>
+                            <h2 className="text-2xl font-bold">{name}</h2>
                             <p>{description}</p>
                             <h3 className='text-xl'>Minimum order: <span className='font-semibold'>{minQuantity}</span> piece</h3>
                             <h3 className='text-xl'>Available product: <span className='font-semibold'>{available}</span> piece</h3>
@@ -136,29 +136,29 @@ const Purchase = () => {
                             <div className='flex justify-between items-center'>
                                 <button onClick={decreaseQuantity} className='btn btn-outline btn-secondary btn-xs'>Decrease</button>
                                 <form onSubmit={increaseQuantity}>
-                                    <input type="number" placeholder='Increase order' name="quantity" class="input input-bordered h-8 mr-2" />
+                                    <input type="number" placeholder='Increase order' name="quantity" className="input input-bordered h-8 mr-2" />
                                     <button className='btn btn-outline btn-secondary btn-xs'>Increase</button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div class="card shadow-2xl bg-base-100">
-                        <div class="card-body">
+                    <div className="card shadow-2xl bg-base-100">
+                        <div className="card-body">
                             <h3 className='text-center text-xl mb-4'>User Information</h3>
                             <form onSubmit={placeOrder}>
-                                <div class="form-control">
-                                    <input type="text" name='name' value={user.displayName} class="input input-bordered" />
+                                <div className="form-control">
+                                    <input type="text" name='name' value={user.displayName} className="input input-bordered" />
                                 </div>
-                                <div class="form-control">
-                                    <input type="email" name='email' value={user.email} class="input input-bordered my-4" />
+                                <div className="form-control">
+                                    <input type="email" name='email' value={user.email} className="input input-bordered my-4" />
                                 </div>
-                                <div class="form-control">
-                                    <input type="text" placeholder='Address' required class="input input-bordered" />
+                                <div className="form-control">
+                                    <input type="text" placeholder='Address' required className="input input-bordered" />
                                 </div>
-                                <div class="form-control">
-                                    <input type="text" placeholder='phone' required class="input input-bordered my-4" />
+                                <div className="form-control">
+                                    <input type="text" placeholder='phone' required className="input input-bordered my-4" />
                                 </div>
-                                <div class="form-control">
+                                <div className="form-control">
                                     <input type="submit" value='Purchase'
                                         className='btn btn-outline btn-secondary' />
                                 </div>
