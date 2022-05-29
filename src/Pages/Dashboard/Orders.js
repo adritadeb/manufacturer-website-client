@@ -17,7 +17,6 @@ const Orders = () => {
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
-                console.log(data)
             })
     }, [user]);
     return (
@@ -45,7 +44,7 @@ const Orders = () => {
                                 <td>{order.toolName}</td>
                                 <td>{order.toolAvailable}</td>
                                 <td>{order.toolOrderedQuantity}</td>
-                                <td>{order.toolPrice}</td>
+                                <td>${order.toolPrice}</td>
                                 <td>
                                     <Link to='/payment' className="btn btn-secondary btn-outline">Payment</Link>
                                 </td>

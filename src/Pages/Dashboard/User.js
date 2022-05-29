@@ -11,7 +11,7 @@ const User = ({ user, index, refetch }) => {
             }
         })
             .then(res => {
-                if (res.status === 401) {
+                if (res.status === 401 || res.status === 403) {
                     toast.error('Failed to make admin');
                 }
                 return res.json()
