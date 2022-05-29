@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
-import User from './User';
+import ManageOrder from './ManageOrder';
 
-const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+const ManageOrders = () => {
+    const { data: manageOrders, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/manageOrders', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -17,25 +17,29 @@ const Users = () => {
 
     return (
         <div>
-            <h1 className='text-2xl ml-5 my-8'>All Users</h1>
+            <h1 className='text-2xl ml-5 my-8'>All Orders</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>User</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Available</th>
+                            <th>Ordered</th>
+                            <th>Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) => <User
-                                key={user._id}
-                                user={user}
+                            manageOrders.map((manageOrder, index) => <ManageOrder
+                                key={manageOrder._id}
+                                manageOrder={manageOrder}
                                 index={index}
                                 refetch={refetch}
-                            ></User>)
+                            ></ManageOrder>)
                         }
                     </tbody>
                 </table>
@@ -44,4 +48,4 @@ const Users = () => {
     );
 };
 
-export default Users;
+export default ManageOrders;

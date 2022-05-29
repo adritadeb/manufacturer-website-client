@@ -40,7 +40,7 @@ const Orders = () => {
                         {
                             orders.map((order, index) => <tr key={order._id}>
                                 <th>{index + 1}</th>
-                                <th><img className='w-20' src={order.toolImg} alt="" /></th>
+                                <td><img className='w-20' src={order.toolImg} alt="" /></td>
                                 <td>{order.toolName}</td>
                                 <td>{order.toolAvailable}</td>
                                 <td>{order.toolOrderedQuantity}</td>

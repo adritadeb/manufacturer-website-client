@@ -5,6 +5,7 @@ import './App.css';
 import Blogs from './Pages/Blogs/Blogs';
 import AddReview from './Pages/Dashboard/AddReview';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import ManageOrders from './Pages/Dashboard/ManageOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Orders from './Pages/Dashboard/Orders';
 import Users from './Pages/Dashboard/Users';
@@ -37,6 +38,9 @@ function App() {
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
           <Route path='users' element={<RequireAdmin>
             <Users></Users>
+          </RequireAdmin>}></Route>
+          <Route path='manageOrders' element={<RequireAdmin>
+            <ManageOrders></ManageOrders>
           </RequireAdmin>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
