@@ -13,7 +13,7 @@ const AddProduct = () => {
 
         const newTool = { name, img, minQuantity, available, price, description };
 
-        fetch('http://localhost:5000/tools', {
+        fetch('https://damp-castle-10213.herokuapp.com/tools', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L3OZaIKuLyQCWqHHPY8wiThhxiwWQvqSTL1l
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/order/6291ecd95568436d470c4662`;
+    const url = `https://damp-castle-10213.herokuapp.com/order/6291ecd95568436d470c4662`;
 
     const { data: order, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',

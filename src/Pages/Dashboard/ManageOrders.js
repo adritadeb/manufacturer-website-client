@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import ManageOrder from './ManageOrder';
 
 const ManageOrders = () => {
-    const { data: manageOrders, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/manageOrders', {
+    const { data: manageOrders, isLoading, refetch } = useQuery('users', () => fetch('https://damp-castle-10213.herokuapp.com/manageOrders', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

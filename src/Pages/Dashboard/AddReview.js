@@ -13,7 +13,7 @@ const addReview = event => {
     }
 
     const newReview = { reviewValue, ratingsValue };
-    fetch('http://localhost:5000/reviews', {
+    fetch('https://damp-castle-10213.herokuapp.com/reviews', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

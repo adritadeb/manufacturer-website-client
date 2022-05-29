@@ -1,18 +1,20 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import React, { useState, useEffect } from 'react';
+import Loading from '../Shared/Loading';
 
 const CheckoutForm = ({ order }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
+    const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
 
-    const { toolPrice, email } = order;
+    const { _id, toolPrice, email } = order;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://damp-castle-10213.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -29,12 +31,17 @@ const CheckoutForm = ({ order }) => {
 
     }, [toolPrice]);
 
+    if (processing) {
+        return <Loading></Loading>
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         if (!stripe || !elements) {
             return;
         }
+
         const card = elements.getElement(CardElement);
 
         if (card === null) {
@@ -48,6 +55,7 @@ const CheckoutForm = ({ order }) => {
 
         setCardError(error?.message || '');
         setSuccess('');
+        setProcessing(true);
 
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
@@ -63,11 +71,31 @@ const CheckoutForm = ({ order }) => {
 
         if (intentError) {
             setCardError(intentError?.message);
+            setProcessing(false);
         }
         else {
             setCardError('');
             setTransactionId(paymentIntent.id);
             setSuccess('Congrats! Your payment is completed');
+
+            const payment = {
+                order: _id,
+                transactionId: paymentIntent.id
+            }
+
+            fetch(`https://damp-castle-10213.herokuapp.com/order/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data)
+                })
         }
     }
     return (

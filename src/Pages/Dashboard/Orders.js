@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
+    const [deleting, setDeleting] = useState(null);
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`, {
+        fetch(`https://damp-castle-10213.herokuapp.com/orders?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,6 +21,7 @@ const Orders = () => {
                 setOrders(data);
             })
     }, [user]);
+
     return (
         <div>
             <h1 className='text-2xl ml-5 my-8'>My Orders</h1>
@@ -46,16 +49,26 @@ const Orders = () => {
                                 <td>{order.toolOrderedQuantity}</td>
                                 <td>${order.toolPrice}</td>
                                 <td>
-                                    <Link to={`/dashboard/payment/${order._id}`} className="btn btn-secondary btn-outline">Payment</Link>
+                                    {(!order.paid) && <Link to={`/dashboard/payment/${order._id}`} className="btn btn-secondary btn-outline">Payment</Link>}
+                                    {(order.paid) && <div>
+                                        <span className='text-success'>Paid</span>
+                                        <span className='text-success block'>Transaction Id: {order.transactionId}</span>
+                                    </div>}
                                 </td>
                                 <td>
-                                    <button className="btn btn-error">Cancel</button>
+                                    {(!order.paid) && <button onClick={() => setDeleting(order)} htmlFor="delete-confirm-modal" className="btn btn-error">Cancel</button>}
                                 </td>
                             </tr>)
                         }
                     </tbody>
                 </table>
             </div>
+            {
+                deleting && <DeleteModal
+                    deletingDoctor={deleting}
+                    setDeletingDoctor={setDeleting}
+                ></DeleteModal>
+            }
         </div>
     );
 };

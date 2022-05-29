@@ -10,7 +10,7 @@ const Purchase = () => {
     const [orderedQuantity, setOrderedQuantity] = useState(0);
 
     const { id } = useParams();
-    const url = `http://localhost:5000/tool/${id}`;
+    const url = `https://damp-castle-10213.herokuapp.com/tool/${id}`;
 
     useEffect(() => {
         fetch(url)
@@ -102,7 +102,7 @@ const Purchase = () => {
 
         const orderedTool = { userName, email, toolName, toolImg, toolMinQuantity, toolAvailable, toolOrderedQuantity, toolPrice, toolBody };
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://damp-castle-10213.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
