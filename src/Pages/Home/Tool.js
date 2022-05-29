@@ -6,7 +6,7 @@ const Tool = ({ tool }) => {
 
     return (
         <div className="card bg-base-100 shadow-xl">
-            <figure><img src={img} alt="tool" /></figure>
+            <figure><img className='w-80 h-80' src={img} alt="tool" /></figure>
             <div className="card-body">
                 <h2 className="text-2xl font-bold">{name}</h2>
                 <p>{description}</p>

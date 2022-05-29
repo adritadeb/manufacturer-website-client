@@ -50,7 +50,7 @@ const Orders = () => {
                                     <Link to='/payment' className="btn btn-secondary btn-outline">Payment</Link>
                                 </td>
                                 <td>
-                                    <button className="btn btn-error">Delete</button>
+                                    <button className="btn btn-error">Cancel</button>
                                 </td>
                             </tr>)
                         }
