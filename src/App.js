@@ -9,6 +9,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Orders from './Pages/Dashboard/Orders';
+import Payment from './Pages/Dashboard/Payment';
 import Users from './Pages/Dashboard/Users';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
@@ -46,6 +47,7 @@ function App() {
           <Route path='addProduct' element={<RequireAdmin>
             <AddProduct></AddProduct>
           </RequireAdmin>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>

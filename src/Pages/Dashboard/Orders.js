@@ -46,7 +46,7 @@ const Orders = () => {
                                 <td>{order.toolOrderedQuantity}</td>
                                 <td>${order.toolPrice}</td>
                                 <td>
-                                    <Link to='/payment' className="btn btn-secondary btn-outline">Payment</Link>
+                                    <Link to={`/dashboard/payment/${order._id}`} className="btn btn-secondary btn-outline">Payment</Link>
                                 </td>
                                 <td>
                                     <button className="btn btn-error">Cancel</button>
