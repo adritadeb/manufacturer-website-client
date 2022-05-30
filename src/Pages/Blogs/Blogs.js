@@ -17,6 +17,10 @@ const Blogs = () => {
                     <h2 className='text-2xl'>3. How does prototypical inheritance work?</h2>
                     <p className='ml-2 my-5'>-- The prototypical inheritance is a javascript feature to add methods and properties to objects. By using it, an object can share, extend or copy properties and methods of another. When an object tries to access a property or method of another one. At first, javascript searches it on the object itself. If it is not there, javascript searches it to the object's prototype. If still no match is found, then javascript will search the linked object's prototype and continue it till reached the end of the prototype. The object inherits the methods and properties of another.</p>
                 </div>
+                <div>
+                    <h2 className='text-2xl'>4. Why you do not set the state directly in react?</h2>
+                    <p className='ml-2 my-5'>-- We don't set the state directly because by doing it, we will lose the state's control across all components. Also, if we update a state directly after that, if we call setState(), it will just replace the update. Also, when we update a state directly, it doesn't change the state immediately. It creates a pending state condition. Also, it can create odd bugs and components which are difficult to optimize.</p>
+                </div>
             </div>
         </div>
     );
