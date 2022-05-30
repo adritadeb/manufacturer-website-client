@@ -3,10 +3,10 @@ import { toast } from 'react-toastify';
 
 const DeleteModal = ({ deleting, setDeleting }) => {
 
-    const { email } = deleting;
+    const { _id } = deleting;
 
     const handleDelete = () => {
-        fetch(`https://damp-castle-10213.herokuapp.com/orders/${email}`, {
+        fetch(`https://damp-castle-10213.herokuapp.com/orders/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -27,7 +27,7 @@ const DeleteModal = ({ deleting, setDeleting }) => {
                     <div class="modal-box">
                         <h3 class="font-bold text-lg text-red-500">Are you sure you want to delete!</h3>
                         <div class="modal-action">
-                            <button onClick={() => handleDelete()} className='btn btn-xs btn-error'>Delete</button>
+                            <button onClick={handleDelete} className='btn btn-xs btn-error'>Delete</button>
                             <label htmlFor="delete-confirm-modal" class="btn btn-xs">Cancel</label>
                         </div>
                     </div>

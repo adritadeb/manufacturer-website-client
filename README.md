@@ -1,70 +1,16 @@
-# Getting Started with Create React App
+# Project name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## --> Roll Wall
 
-## Available Scripts
+# Live-site link
 
-In the project directory, you can run:
+## --> [Project live-site link]()
 
-### `npm start`
+# About my project's features and functionalities
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* On the home page, there are navbar, banner, tools, business summery, reviews, footer and to extra sections.
+* In the tools section, there are three tools shown. There is a purchase button on each tool card. By clicking on this button it will take on the protected purchase page, where we can purchase tools. Tools quantity have to be within minimum quantity to available quantity.
+* When a user logged in dashboard page link will shown in the navbar. On this page a simple user will see three page. My orders, add review and my profile. User's order will shown in my orders page. User can delete unpaid orders. An user can also add a review in the add review page. User's added review will shown in home page.
+*  My profile page will shown in simple user and admin both case. Here user's profile will shown, where user can update or insert his/her document. When an admin logged in there will also shown manage all orders, add a product, make admin and manage products page.
+* On the manage all orders page, all orders will shown. Admin can delete unpaid orders and also can update status of paid orders. Admin can add a product in add a product page. The added products will shown in home page. In the make admin page an admin can make another user admin and in the manage products page admin can delete products.
+* On the login and sign up page, simple email-password and google based authentication have applied. On the blogs page, there are five questions answered and on the my portfolio page, there is given my name, email, educational background, list of technologies or skills I have as a web developer and my three best projects link.
