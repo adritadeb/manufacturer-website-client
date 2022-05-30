@@ -26,11 +26,11 @@ const Portfolio = () => {
                     </div>
                 </div>
                 <div>
-                    <h3 className='text-3xl font-bold mb-3'>My three best projects links:</h3>
+                    <h3 className='text-3xl font-semibold mb-3'>My three best projects links:</h3>
                     <div className='text-blue-600 font-semibold text-xl ml-8 mb-3'>
-                        <a href="https://project-warehouse-manage-52c58.web.app/">Books Stocker</a>
-                        <a className='block' href="https://independent-service-prov-35fa1.web.app/">Wedding Portrait</a>
-                        <a href="https://product-analysis-adrita.netlify.app/home">Skill Up</a>
+                        <a href="https://project-warehouse-manage-52c58.web.app/">-- Books Stocker</a>
+                        <a className='block' href="https://independent-service-prov-35fa1.web.app/">-- Wedding Portrait</a>
+                        <a href="https://product-analysis-adrita.netlify.app/home">-- Skill Up</a>
                     </div>
                 </div>
             </div>
